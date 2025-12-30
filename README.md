@@ -24,5 +24,19 @@ and guardrails.
 - `runner/`: automation harness for running phases + validating alerts
 - `scoring/`: pass/fail criteria
 
+## Current status
+- Phase 04 (Execution) scaffolded with scripts, manifest, Wazuh wiring, and validation stub.
+- Other phases planned.
+
+## Quickstart (Phase 04)
+```bash
+python3 runner/run_phase.py --manifest labs/phase-04-execution/manifest.json --workspace artifacts/phase-04-execution
+```
+
+To validate against exported alerts:
+```bash
+python3 runner/validate_wazuh.py --alerts /path/to/alerts.json
+```
+
 ## Companion repository
 - https://github.com/mrjmriii/iac-homelab

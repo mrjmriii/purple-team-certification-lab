@@ -1,0 +1,29 @@
+<!-- Phase 04 execution rules (scaffolded) -->
+<group name="ptclab,execution,">
+  <rule id="100401" level="5">
+    <decoded_as>ptclab-execution</decoded_as>
+    <field name="event">command</field>
+    <description>PTCLAB execution: shell command invocation</description>
+    <mitre>
+      <id>T1059.004</id>
+    </mitre>
+  </rule>
+
+  <rule id="100402" level="6">
+    <decoded_as>ptclab-execution</decoded_as>
+    <field name="event">encoded</field>
+    <description>PTCLAB execution: base64 encoded command</description>
+    <mitre>
+      <id>T1027</id>
+    </mitre>
+  </rule>
+
+  <rule id="100403" level="5">
+    <decoded_as>ptclab-execution</decoded_as>
+    <field name="event">write</field>
+    <description>PTCLAB execution: interpreter executed staged script</description>
+    <mitre>
+      <id>T1059.006</id>
+    </mitre>
+  </rule>
+</group>

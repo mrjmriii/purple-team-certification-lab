@@ -23,6 +23,9 @@ phases:
         - "token_use_log.py"
         - "config_touch_tmp.py"
         - "exec_marker.py"
+        - "lolbin_execution.py"
+        - "script_interpreter_abuse.py"
+        - "encoded_command_exec.py"
       postures: ["01", "03", "04", "05", "10", "12"]
   Persistence:
     - technique: "Scheduled Task/Job (T1053)"

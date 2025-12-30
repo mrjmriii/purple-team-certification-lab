@@ -1,0 +1,6 @@
+<!-- Phase 04 execution decoder (scaffolded) -->
+<decoder name="ptclab-execution">
+  <prematch>^PTCLAB phase=execution</prematch>
+  <regex>^PTCLAB phase=(\S+) technique=(\S+) script=(\S+) event=(\S+) message="([^"]+)"$</regex>
+  <order>phase,technique,script,event,message</order>
+</decoder>

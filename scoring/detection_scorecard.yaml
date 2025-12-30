@@ -38,3 +38,12 @@ postures:
       - { phase: "Command and Control", script: "c2_http_localhost.py", expected_artifacts: ["curl http://localhost:8080/beacon"], expected_rules: ["TODO-HTTP-BEACON"] }
 
 # Additional postures will be added with scripts as implemented.
+
+phases:
+  phase-04-execution:
+    status: scaffolded
+    expected_rule_ids: [100401, 100402, 100403]
+    pass_criteria:
+      - All expected rule IDs observed in alert export
+      - Phase scripts ran without error
+      - Artifacts written to workspace

@@ -1,0 +1,28 @@
+{
+  "phase": "execution",
+  "id": "phase-04-execution",
+  "status": "scaffolded",
+  "workspace": "artifacts/phase-04-execution",
+  "log_file": "artifacts/phase-04-execution/ptclab.log",
+  "expected_rule_ids": [100401, 100402, 100403],
+  "scripts": [
+    {
+      "name": "lolbin_execution",
+      "path": "labs/phase-04-execution/scripts/lolbin_execution.py",
+      "techniques": ["T1059.004"],
+      "expected_telemetry": ["process_creation", "command_line", "workspace_file_write"]
+    },
+    {
+      "name": "encoded_command_exec",
+      "path": "labs/phase-04-execution/scripts/encoded_command_exec.py",
+      "techniques": ["T1027", "T1059.004"],
+      "expected_telemetry": ["process_creation", "encoded_command_line", "workspace_file_write"]
+    },
+    {
+      "name": "script_interpreter_abuse",
+      "path": "labs/phase-04-execution/scripts/script_interpreter_abuse.py",
+      "techniques": ["T1059.006"],
+      "expected_telemetry": ["process_creation", "script_write", "workspace_file_write"]
+    }
+  ]
+}
