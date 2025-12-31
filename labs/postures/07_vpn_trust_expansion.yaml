@@ -1,0 +1,40 @@
+id: "07"
+name: "VPN trust expansion"
+category: "Social Engineering Drift"
+pretext: "Contractor needs access"
+human_factor: "Helpfulness + urgency"
+drift_change:
+  description: "New principal/device allowed; split tunnel enabled"
+  scope: ["user:contractor1", "device:contractor-laptop"]
+assumed_access:
+  credentials: "VPN credentials valid"
+  network: "VPN reachable"
+mapped_kill_chain:
+  - phase: "Initial Access"
+    technique: "External Remote Services (T1133)"
+    scripts: ["vpn_policy_change_log.py"]
+    telemetry: ["stdout: VPN policy change log"]
+  - phase: "Discovery"
+    technique: "Remote System Discovery (T1018)"
+    scripts: ["net_scan_reserved.py"]
+    telemetry: ["network: limited TCP scan to 198.51.100.0/24"]
+  - phase: "Lateral Movement"
+    technique: "Remote Services: SSH (T1021.004)"
+    scripts: ["ssh_attempt_reserved.py"]
+    telemetry: ["SSH attempts to 198.51.100.10"]
+  - phase: "Command and Control"
+    technique: "Application Layer Protocol: Web (T1071.001)"
+    scripts: ["c2_http_localhost.py"]
+    telemetry: ["curl http://localhost:8080/beacon"]
+expected_wazuh_alerts:
+  - { name: "VPN policy change", rule_id: "TODO-VPN-POLICY", evidence: ["stdout marker"] }
+  - { name: "Network scan reserved", rule_id: "TODO-NET-SCAN", evidence: ["probe to 198.51.100.x"] }
+  - { name: "SSH lateral", rule_id: "TODO-SSH-LATERAL", evidence: ["SSH to reserved IP"] }
+  - { name: "HTTP beacon", rule_id: "TODO-HTTP-BEACON", evidence: ["curl to localhost"] }
+detection_notes:
+  false_positive_considerations: ["Legit inventory scans"]
+  tuning: ["Scope to reserved ranges; marker strings"]
+runner_parameters:
+  timeout_seconds: 200
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

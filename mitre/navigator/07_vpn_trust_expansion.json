@@ -1,0 +1,16 @@
+{
+  "name": "Posture 07 - VPN trust expansion",
+  "description": "Kill-chain techniques for VPN trust expansion scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1133", "tactic": "initial-access", "score": 1, "comment": "Order 1: External remote service/VPN change (vpn_policy_change_log.py)", "enabled": true, "metadata": [{"name": "Script", "value": "vpn_policy_change_log.py"}]},
+    {"techniqueID": "T1018", "tactic": "discovery", "score": 2, "comment": "Order 2: Remote system discovery scan (net_scan_reserved.py)", "enabled": true, "metadata": [{"name": "Script", "value": "net_scan_reserved.py"}]},
+    {"techniqueID": "T1021.004", "tactic": "lateral-movement", "score": 3, "comment": "Order 3: SSH lateral movement attempt (ssh_attempt_reserved.py)", "enabled": true, "metadata": [{"name": "Script", "value": "ssh_attempt_reserved.py"}]},
+    {"techniqueID": "T1071.001", "tactic": "command-and-control", "score": 4, "comment": "Order 4: HTTP beacon to localhost (c2_http_localhost.py)", "enabled": true, "metadata": [{"name": "Script", "value": "c2_http_localhost.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#e377c2"], "minValue": 0, "maxValue": 4},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

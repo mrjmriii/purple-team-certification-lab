@@ -1,0 +1,16 @@
+{
+  "name": "Posture 03 - Email security relaxation",
+  "description": "Kill-chain techniques for email allowlist/macros scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1566", "tactic": "initial-access", "score": 1, "comment": "Order 1: Phishing/macro dropper (macro_like_temp_exec.py)", "enabled": true, "metadata": [{"name": "Script", "value": "macro_like_temp_exec.py"}]},
+    {"techniqueID": "T1059", "tactic": "execution", "score": 2, "comment": "Order 2: Macro-like command execution (macro_like_temp_exec.py)", "enabled": true, "metadata": [{"name": "Script", "value": "macro_like_temp_exec.py"}]},
+    {"techniqueID": "T1119", "tactic": "collection", "score": 3, "comment": "Order 3: Automated collection (collection_dummy_archive.py)", "enabled": true, "metadata": [{"name": "Script", "value": "collection_dummy_archive.py"}]},
+    {"techniqueID": "T1041", "tactic": "exfiltration", "score": 4, "comment": "Order 4: Exfil over HTTP localhost (exfil_localhost_log.py)", "enabled": true, "metadata": [{"name": "Script", "value": "exfil_localhost_log.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#2ca02c"], "minValue": 0, "maxValue": 4},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

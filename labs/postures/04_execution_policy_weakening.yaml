@@ -1,0 +1,34 @@
+id: "04"
+name: "Execution policy weakening"
+category: "Social Engineering Drift"
+pretext: "Legacy tool needs macros/PowerShell"
+human_factor: "Helpfulness + perceived necessity"
+drift_change:
+  description: "Execution policy lowered; macros enabled"
+  scope: ["host:linux-test"]
+assumed_access:
+  credentials: "User or operator with script ability"
+  network: "Localhost only"
+mapped_kill_chain:
+  - phase: "Execution"
+    technique: "Command Execution (T1059)"
+    scripts: ["exec_policy_toggle_sim.py"]
+    telemetry: ["stdout: policy toggle log"]
+  - phase: "Persistence"
+    technique: "Scheduled Task/Job (T1053)"
+    scripts: ["persistence_temp_autorun.py"]
+    telemetry: ["file: /tmp/purple-autorun.sh", "stdout: autorun log"]
+  - phase: "Defense Evasion"
+    technique: "Impair Defenses (T1562.001)"
+    scripts: ["exec_policy_toggle_sim.py"]
+    telemetry: ["stdout: execution policy lowered marker"]
+expected_wazuh_alerts:
+  - { name: "Policy change", rule_id: "TODO-POLICY-CHANGE", evidence: ["stdout marker"] }
+  - { name: "Temp autorun", rule_id: "TODO-AUTORUN-TMP", evidence: ["/tmp/purple-autorun.sh"] }
+detection_notes:
+  false_positive_considerations: ["Admin testing", "Automation runs"]
+  tuning: ["Match marker strings; scope to lab hosts"]
+runner_parameters:
+  timeout_seconds: 150
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

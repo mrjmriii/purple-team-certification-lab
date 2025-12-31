@@ -1,0 +1,15 @@
+{
+  "name": "Posture 12 - Change control bypass",
+  "description": "Kill-chain techniques for change-control bypass scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1562", "tactic": "defense-evasion", "score": 1, "comment": "Order 1: Impair defenses/no-ticket change (change_without_ticket.py)", "enabled": true, "metadata": [{"name": "Script", "value": "change_without_ticket.py"}]},
+    {"techniqueID": "T1059", "tactic": "execution", "score": 2, "comment": "Order 2: Command execution/config touch (config_touch_tmp.py)", "enabled": true, "metadata": [{"name": "Script", "value": "config_touch_tmp.py"}]},
+    {"techniqueID": "T1499", "tactic": "impact", "score": 3, "comment": "Order 3: Service disruption analog (impact_marker.py)", "enabled": true, "metadata": [{"name": "Script", "value": "impact_marker.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#ff9896"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

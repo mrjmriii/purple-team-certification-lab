@@ -1,0 +1,15 @@
+{
+  "name": "Posture 09 - Backup & recovery suppression",
+  "description": "Kill-chain techniques for backup suppression scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1490", "tactic": "impact", "score": 1, "comment": "Order 1: Inhibit system recovery (backup_disable_log.py)", "enabled": true, "metadata": [{"name": "Script", "value": "backup_disable_log.py"}]},
+    {"techniqueID": "T1083", "tactic": "discovery", "score": 2, "comment": "Order 2: File discovery/archive (collection_dummy_archive.py)", "enabled": true, "metadata": [{"name": "Script", "value": "collection_dummy_archive.py"}]},
+    {"techniqueID": "T1041", "tactic": "exfiltration", "score": 3, "comment": "Order 3: Exfil over HTTP localhost (exfil_localhost_log.py)", "enabled": true, "metadata": [{"name": "Script", "value": "exfil_localhost_log.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#bcbd22"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

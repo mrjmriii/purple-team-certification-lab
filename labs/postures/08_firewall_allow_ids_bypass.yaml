@@ -1,0 +1,35 @@
+id: "08"
+name: "Firewall temporary allow / IDS bypass"
+category: "Social Engineering Drift"
+pretext: "Patch/update blocked"
+human_factor: "Urgency + operational pressure"
+drift_change:
+  description: "Allow rule inserted; IDS bypass for host"
+  scope: ["host:198.51.100.20", "service:https"]
+assumed_access:
+  credentials: "Operator access (simulated)"
+  network: "Internal mgmt"
+mapped_kill_chain:
+  - phase: "Defense Evasion"
+    technique: "Modify Firewall (T1562.004)"
+    scripts: ["fw_rule_toggle_log.py"]
+    telemetry: ["file: /tmp/fw_rule_toggle.log", "stdout: rule toggle"]
+  - phase: "Lateral Movement"
+    technique: "Remote Services (T1021)"
+    scripts: ["tcp_connect_attempt.py"]
+    telemetry: ["connect to 198.51.100.20:8443", "stdout: result"]
+  - phase: "Command and Control"
+    technique: "Application Layer Protocol: Web (T1071.001)"
+    scripts: ["c2_http_localhost.py"]
+    telemetry: ["curl http://localhost:8080/beacon"]
+expected_wazuh_alerts:
+  - { name: "Firewall rule change", rule_id: "TODO-FW-RULE", evidence: ["/tmp/fw_rule_toggle.log"] }
+  - { name: "Outbound TCP probe", rule_id: "TODO-TCP-PROBE", evidence: ["connect to 198.51.100.20:8443"] }
+  - { name: "HTTP beacon", rule_id: "TODO-HTTP-BEACON", evidence: ["curl to localhost"] }
+detection_notes:
+  false_positive_considerations: ["Legit maintenance windows"]
+  tuning: ["Time-boxed rule change detection; scope to test host"]
+runner_parameters:
+  timeout_seconds: 180
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

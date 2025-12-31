@@ -1,0 +1,15 @@
+{
+  "name": "Posture 08 - Firewall temporary allow / IDS bypass",
+  "description": "Kill-chain techniques for firewall/IDS bypass scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1562.004", "tactic": "defense-evasion", "score": 1, "comment": "Order 1: Modify firewall rule (fw_rule_toggle_log.py)", "enabled": true, "metadata": [{"name": "Script", "value": "fw_rule_toggle_log.py"}]},
+    {"techniqueID": "T1021", "tactic": "lateral-movement", "score": 2, "comment": "Order 2: Remote service probe (tcp_connect_attempt.py)", "enabled": true, "metadata": [{"name": "Script", "value": "tcp_connect_attempt.py"}]},
+    {"techniqueID": "T1071.001", "tactic": "command-and-control", "score": 3, "comment": "Order 3: HTTP beacon to localhost (c2_http_localhost.py)", "enabled": true, "metadata": [{"name": "Script", "value": "c2_http_localhost.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#7f7f7f"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

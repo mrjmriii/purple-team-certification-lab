@@ -1,0 +1,48 @@
+{
+  "name": "Posture 01 - Reduced MFA coverage",
+  "description": "Kill-chain techniques for reduced MFA coverage (safe simulation). Each technique aligns to a planned script and order.",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.8.1",
+    "layer": "4.4"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 1,
+      "comment": "Order 1: Valid Accounts via reduced MFA (initial_access_valid_creds.py)",
+      "enabled": true,
+      "metadata": [{"name": "Script", "value": "initial_access_valid_creds.py"}]
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 2,
+      "comment": "Order 2: Command execution follow-on (exec_follow_on.py)",
+      "enabled": true,
+      "metadata": [{"name": "Script", "value": "exec_follow_on.py"}]
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 3,
+      "comment": "Order 3: Scheduled task in /tmp (persistence_temp_cron.py)",
+      "enabled": true,
+      "metadata": [{"name": "Script", "value": "persistence_temp_cron.py"}]
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 4,
+      "comment": "Order 4: HTTP beacon to localhost (c2_http_localhost.py)",
+      "enabled": true,
+      "metadata": [{"name": "Script", "value": "c2_http_localhost.py"}]
+    }
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#5b8def"], "minValue": 0, "maxValue": 4},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

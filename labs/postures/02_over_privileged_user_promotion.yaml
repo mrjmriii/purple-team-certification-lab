@@ -1,0 +1,35 @@
+id: "02"
+name: "Over-privileged user promotion"
+category: "Social Engineering Drift"
+pretext: "Temporary admin for vendor support"
+human_factor: "Helpfulness + authority"
+drift_change:
+  description: "User added to privileged group"
+  scope: ["user:temp_admin", "group:wheel"]
+assumed_access:
+  credentials: "Valid user creds"
+  network: "Internal reachability"
+mapped_kill_chain:
+  - phase: "Privilege Escalation"
+    technique: "Abuse Elevation Control Mechanism (T1548)"
+    scripts: ["priv_escal_group_change_sim.py"]
+    telemetry: ["stdout: simulated group change log"]
+  - phase: "Discovery"
+    technique: "Permission Groups Discovery (T1069)"
+    scripts: ["discovery_sudoers_scan.py"]
+    telemetry: ["file read: /etc/sudoers", "stdout: sudoers listing"]
+  - phase: "Lateral Movement"
+    technique: "Remote Services: SSH (T1021.004)"
+    scripts: ["ssh_attempt_reserved.py"]
+    telemetry: ["network: SSH attempt to 198.51.100.10", "stdout: SSH fail/success log"]
+expected_wazuh_alerts:
+  - { name: "Priv group change", rule_id: "TODO-GROUP-CHANGE", evidence: ["simulated group change log"] }
+  - { name: "Sudoers read", rule_id: "TODO-SUDOERS-READ", evidence: ["/etc/sudoers access"] }
+  - { name: "SSH lateral attempt", rule_id: "TODO-SSH-LATERAL", evidence: ["SSH to 198.51.100.10"] }
+detection_notes:
+  false_positive_considerations: ["Legit admin changes", "Config management runs"]
+  tuning: ["Scope to test users; limit to reserved IPs"]
+runner_parameters:
+  timeout_seconds: 180
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

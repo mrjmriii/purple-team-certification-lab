@@ -1,0 +1,20 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='420' viewBox='0 0 900 420'>
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#0f172a;} .hdr{font-size:18px;font-weight:bold;} .sub{font-size:12px;}</style>
+<text x='20' y='30' class='hdr'>Posture 01 - Reduced MFA coverage</text>
+<rect x='20' y='50' width='860' height='70' rx='10' ry='10' fill='#5b8def' fill-opacity='0.18' stroke='#5b8def' stroke-width='1.5' />
+<text x='40' y='75' class='hdr'>Step 1: initial-access / T1078</text>
+<text x='40' y='95' class='sub'>Order 1: Valid Accounts via reduced MFA (initial_access_valid_creds.py)</text>
+<text x='40' y='113' class='sub'>Script: initial_access_valid_creds.py</text>
+<rect x='20' y='140' width='860' height='70' rx='10' ry='10' fill='#2ca02c' fill-opacity='0.18' stroke='#2ca02c' stroke-width='1.5' />
+<text x='40' y='165' class='hdr'>Step 2: execution / T1059</text>
+<text x='40' y='185' class='sub'>Order 2: Command execution follow-on (exec_follow_on.py)</text>
+<text x='40' y='203' class='sub'>Script: exec_follow_on.py</text>
+<rect x='20' y='230' width='860' height='70' rx='10' ry='10' fill='#ff7f0e' fill-opacity='0.18' stroke='#ff7f0e' stroke-width='1.5' />
+<text x='40' y='255' class='hdr'>Step 3: persistence / T1053</text>
+<text x='40' y='275' class='sub'>Order 3: Scheduled task in /tmp (persistence_temp_cron.py)</text>
+<text x='40' y='293' class='sub'>Script: persistence_temp_cron.py</text>
+<rect x='20' y='320' width='860' height='70' rx='10' ry='10' fill='#d62728' fill-opacity='0.18' stroke='#d62728' stroke-width='1.5' />
+<text x='40' y='345' class='hdr'>Step 4: command-and-control / T1071.001</text>
+<text x='40' y='365' class='sub'>Order 4: HTTP beacon to localhost (c2_http_localhost.py)</text>
+<text x='40' y='383' class='sub'>Script: c2_http_localhost.py</text>
+</svg>
