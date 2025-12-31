@@ -1,0 +1,39 @@
+id: "03"
+name: "Email security relaxation"
+category: "Social Engineering Drift"
+pretext: "Vendor invoices blocked"
+human_factor: "Helpfulness + urgency"
+drift_change:
+  description: "Allowlist sender/domain; relaxed attachment filtering"
+  scope: ["domain:example.com"]
+assumed_access:
+  credentials: "User mailbox access"
+  network: "Mail flow reachable"
+mapped_kill_chain:
+  - phase: "Initial Access"
+    technique: "Phishing (T1566)"
+    scripts: ["macro_like_temp_exec.py"]
+    telemetry: ["file: /tmp/macro_payload.sh", "process: /bin/sh /tmp/macro_payload.sh"]
+  - phase: "Execution"
+    technique: "Command Execution (T1059)"
+    scripts: ["macro_like_temp_exec.py"]
+    telemetry: ["stdout: macro exec log"]
+  - phase: "Collection"
+    technique: "Automated Collection (T1119)"
+    scripts: ["collection_dummy_archive.py"]
+    telemetry: ["file: /tmp/dummy_archive.tar.gz"]
+  - phase: "Exfiltration"
+    technique: "Exfiltration Over C2 Channel (T1041)"
+    scripts: ["exfil_localhost_log.py"]
+    telemetry: ["network: curl http://localhost:8080/upload", "stdout: exfil log"]
+expected_wazuh_alerts:
+  - { name: "Macro-like temp script", rule_id: "TODO-MACRO-TMP", evidence: ["/tmp/macro_payload.sh"] }
+  - { name: "Archive creation", rule_id: "TODO-ARCHIVE", evidence: ["/tmp/dummy_archive.tar.gz"] }
+  - { name: "HTTP exfil", rule_id: "TODO-HTTP-EXFIL", evidence: ["curl to localhost:8080/upload"] }
+detection_notes:
+  false_positive_considerations: ["Legit temp scripts", "Packaging tools"]
+  tuning: ["Scope to test user; watch for temp path + curl combo"]
+runner_parameters:
+  timeout_seconds: 180
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

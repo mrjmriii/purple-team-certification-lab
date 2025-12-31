@@ -1,0 +1,15 @@
+{
+  "name": "Posture 04 - Execution policy weakening",
+  "description": "Kill-chain techniques for policy weakening/macros scenario (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1059", "tactic": "execution", "score": 1, "comment": "Order 1: Command execution with policy lowered (exec_policy_toggle_sim.py)", "enabled": true, "metadata": [{"name": "Script", "value": "exec_policy_toggle_sim.py"}]},
+    {"techniqueID": "T1053", "tactic": "persistence", "score": 2, "comment": "Order 2: Scheduled task/autorun in /tmp (persistence_temp_autorun.py)", "enabled": true, "metadata": [{"name": "Script", "value": "persistence_temp_autorun.py"}]},
+    {"techniqueID": "T1562.001", "tactic": "defense-evasion", "score": 3, "comment": "Order 3: Impair defenses via policy change (exec_policy_toggle_sim.py)", "enabled": true, "metadata": [{"name": "Script", "value": "exec_policy_toggle_sim.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#d62728"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

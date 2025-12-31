@@ -1,0 +1,15 @@
+{
+  "name": "Posture 05 - Endpoint protection exclusions",
+  "description": "Kill-chain techniques for EDR exclusion drift (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1562.001", "tactic": "defense-evasion", "score": 1, "comment": "Order 1: Impair defenses via exclusion (edr_exclusion_tempfile.py)", "enabled": true, "metadata": [{"name": "Script", "value": "edr_exclusion_tempfile.py"}]},
+    {"techniqueID": "T1059", "tactic": "execution", "score": 2, "comment": "Order 2: Unsigned analog execution (exec_unsigned_analog.py)", "enabled": true, "metadata": [{"name": "Script", "value": "exec_unsigned_analog.py"}]},
+    {"techniqueID": "T1119", "tactic": "collection", "score": 3, "comment": "Order 3: Automated collection/archive (collection_dummy_archive.py)", "enabled": true, "metadata": [{"name": "Script", "value": "collection_dummy_archive.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#9467bd"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

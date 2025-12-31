@@ -1,0 +1,35 @@
+id: "09"
+name: "Backup & recovery suppression"
+category: "Social Engineering Drift"
+pretext: "Storage full / noisy backups"
+human_factor: "Operational fatigue"
+drift_change:
+  description: "Backup jobs disabled; notifications silenced"
+  scope: ["backup:primary"]
+assumed_access:
+  credentials: "Operator-level"
+  network: "Backup target reachable (simulated)"
+mapped_kill_chain:
+  - phase: "Impact"
+    technique: "Inhibit System Recovery (T1490)"
+    scripts: ["backup_disable_log.py"]
+    telemetry: ["stdout: backup disable marker"]
+  - phase: "Discovery"
+    technique: "File and Directory Discovery (T1083)"
+    scripts: ["collection_dummy_archive.py"]
+    telemetry: ["list files, create archive"]
+  - phase: "Exfiltration"
+    technique: "Exfiltration Over C2 Channel (T1041)"
+    scripts: ["exfil_localhost_log.py"]
+    telemetry: ["curl to localhost:8080/upload"]
+expected_wazuh_alerts:
+  - { name: "Backup disable", rule_id: "TODO-BACKUP-DISABLE", evidence: ["stdout marker"] }
+  - { name: "Archive creation", rule_id: "TODO-ARCHIVE", evidence: ["/tmp/dummy_archive.tar.gz"] }
+  - { name: "HTTP exfil", rule_id: "TODO-HTTP-EXFIL", evidence: ["curl to localhost:8080/upload"] }
+detection_notes:
+  false_positive_considerations: ["Legit maintenance"]
+  tuning: ["Time-windowed detection; marker strings"]
+runner_parameters:
+  timeout_seconds: 180
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

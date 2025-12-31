@@ -1,0 +1,47 @@
+id: "01"
+name: "Reduced MFA coverage"
+category: "Social Engineering Drift"
+pretext: "Urgent executive travel / SSO outage"
+human_factor: "Authority + urgency"
+drift_change:
+  description: "MFA disabled for one user/app path"
+  scope: ["user:test_exec", "app:sample_sso"]
+assumed_access:
+  credentials: "Valid creds, no MFA prompt"
+  network: "SSO/VPN reachable"
+mapped_kill_chain:
+  - phase: "Initial Access"
+    technique: "Valid Accounts (T1078)"
+    scripts: ["initial_access_valid_creds.py"]
+    telemetry:
+      - "auth.log: login success without MFA field"
+      - "stdout: simulated login success"
+  - phase: "Execution"
+    technique: "Command Execution (T1059)"
+    scripts: ["exec_follow_on.py"]
+    telemetry:
+      - "process: /bin/sh -c 'echo mfa-bypass-test'"
+      - "stdout: execution marker"
+  - phase: "Persistence"
+    technique: "Scheduled Task/Job (T1053)"
+    scripts: ["persistence_temp_cron.py"]
+    telemetry:
+      - "file: /tmp/purple-lab-cron"
+      - "stdout: cron creation log"
+  - phase: "Command and Control"
+    technique: "Application Layer Protocol: Web (T1071.001)"
+    scripts: ["c2_http_localhost.py"]
+    telemetry:
+      - "network: curl http://localhost:8080/beacon"
+      - "stdout: beacon attempt log"
+expected_wazuh_alerts:
+  - { name: "Auth success without MFA", rule_id: "TODO-MFA-BYPASS", evidence: ["auth.log entry missing MFA claim"] }
+  - { name: "Temp cron creation", rule_id: "TODO-CRON-TMP", evidence: ["/tmp/purple-lab-cron"] }
+  - { name: "HTTP beacon", rule_id: "TODO-HTTP-BEACON", evidence: ["curl to localhost:8080/beacon"] }
+detection_notes:
+  false_positive_considerations: ["Break-glass accounts", "Maintenance windows"]
+  tuning: ["Limit to test user/app; add time window"]
+runner_parameters:
+  timeout_seconds: 120
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

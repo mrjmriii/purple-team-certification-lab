@@ -1,0 +1,15 @@
+{
+  "name": "Posture 02 - Over-privileged user promotion",
+  "description": "Kill-chain techniques for privileged user promotion (safe simulation).",
+  "domain": "enterprise-attack",
+  "versions": {"attack": "14", "navigator": "4.8.1", "layer": "4.4"},
+  "techniques": [
+    {"techniqueID": "T1548", "tactic": "privilege-escalation", "score": 1, "comment": "Order 1: Group change simulation (priv_escal_group_change_sim.py)", "enabled": true, "metadata": [{"name": "Script", "value": "priv_escal_group_change_sim.py"}]},
+    {"techniqueID": "T1069", "tactic": "discovery", "score": 2, "comment": "Order 2: Permission groups discovery (discovery_sudoers_scan.py)", "enabled": true, "metadata": [{"name": "Script", "value": "discovery_sudoers_scan.py"}]},
+    {"techniqueID": "T1021.004", "tactic": "lateral-movement", "score": 3, "comment": "Order 3: SSH lateral attempt to reserved IP (ssh_attempt_reserved.py)", "enabled": true, "metadata": [{"name": "Script", "value": "ssh_attempt_reserved.py"}]}
+  ],
+  "gradient": {"colors": ["#f4f1ff", "#ff7f0e"], "minValue": 0, "maxValue": 3},
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

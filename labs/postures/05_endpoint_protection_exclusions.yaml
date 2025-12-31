@@ -1,0 +1,34 @@
+id: "05"
+name: "Endpoint protection exclusions"
+category: "Social Engineering Drift"
+pretext: "False positives on tool"
+human_factor: "Operational pressure"
+drift_change:
+  description: "EDR exclusion added for path/process"
+  scope: ["path:/tmp/purple-edr-exclusion"]
+assumed_access:
+  credentials: "Operator with EDR config access (simulated)"
+  network: "Localhost"
+mapped_kill_chain:
+  - phase: "Defense Evasion"
+    technique: "Impair Defenses (T1562.001)"
+    scripts: ["edr_exclusion_tempfile.py"]
+    telemetry: ["file: /tmp/purple-edr-exclusion/config.json", "stdout: exclusion log"]
+  - phase: "Execution"
+    technique: "Command Execution (T1059)"
+    scripts: ["exec_unsigned_analog.py"]
+    telemetry: ["process: /tmp/purple-edr-exclusion/run_me", "stdout: exec log"]
+  - phase: "Collection"
+    technique: "Automated Collection (T1119)"
+    scripts: ["collection_dummy_archive.py"]
+    telemetry: ["file: /tmp/dummy_archive.tar.gz"]
+expected_wazuh_alerts:
+  - { name: "EDR exclusion file", rule_id: "TODO-EDR-EXCLUSION", evidence: ["/tmp/purple-edr-exclusion/config.json"] }
+  - { name: "Unsigned analog execution", rule_id: "TODO-UNSIGNED", evidence: ["/tmp/purple-edr-exclusion/run_me"] }
+detection_notes:
+  false_positive_considerations: ["Legit EDR testing"]
+  tuning: ["Scope to temp path; time-boxed"]
+runner_parameters:
+  timeout_seconds: 180
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

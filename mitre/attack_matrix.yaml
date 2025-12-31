@@ -1,1 +1,97 @@
-# Placeholder: map phases -> techniques -> scripts.
+# Planned mapping: phase -> technique -> planned script(s) with posture references.
+phases:
+  Initial Access:
+    - technique: "Valid Accounts (T1078)"
+      scripts: ["initial_access_valid_creds.py"]
+      postures: ["01"]
+    - technique: "Phishing (T1566)"
+      scripts: ["macro_like_temp_exec.py"]
+      postures: ["03"]
+    - technique: "External Remote Services (T1133)"
+      scripts: ["vpn_policy_change_log.py"]
+      postures: ["07"]
+    - technique: "Brute Force/Spraying (T1110)"
+      scripts: ["spray_sim_logonly.py"]
+      postures: ["06"]
+  Execution:
+    - technique: "Command Execution (T1059)"
+      scripts:
+        - "exec_follow_on.py"
+        - "macro_like_temp_exec.py"
+        - "exec_policy_toggle_sim.py"
+        - "exec_unsigned_analog.py"
+        - "token_use_log.py"
+        - "config_touch_tmp.py"
+        - "exec_marker.py"
+      postures: ["01", "03", "04", "05", "10", "12"]
+  Persistence:
+    - technique: "Scheduled Task/Job (T1053)"
+      scripts: ["persistence_temp_cron.py"]
+      postures: ["01"]
+    - technique: "Autorun/Logon Script"
+      scripts: ["persistence_temp_autorun.py"]
+      postures: ["04"]
+    - technique: "Token Persistence"
+      scripts: ["token_store_temp.py"]
+      postures: ["10"]
+  Privilege Escalation:
+    - technique: "Abuse Elevation Control Mechanism (T1548)"
+      scripts: ["priv_escal_group_change_sim.py"]
+      postures: ["02"]
+  Defense Evasion:
+    - technique: "Impair Defenses (T1562/T1562.001)"
+      scripts:
+        - "exec_policy_toggle_sim.py"
+        - "edr_exclusion_tempfile.py"
+        - "loglevel_toggle.py"
+        - "change_without_ticket.py"
+      postures: ["04", "05", "06", "11", "12"]
+    - technique: "Modify Firewall (T1562.004)"
+      scripts: ["fw_rule_toggle_log.py"]
+      postures: ["08"]
+  Credential Access:
+    - technique: "Unsecured Credentials (T1552)"
+      scripts: ["secret_file_scan.py"]
+      postures: ["10"]
+    - technique: "/etc/passwd Read (Discovery Aid)"
+      scripts: ["passwd_read_log.py"]
+      postures: ["06"]
+  Discovery:
+    - technique: "Permission Groups Discovery (T1069)"
+      scripts: ["discovery_sudoers_scan.py"]
+      postures: ["02"]
+    - technique: "Remote System Discovery (T1018)"
+      scripts: ["net_scan_reserved.py"]
+      postures: ["07"]
+    - technique: "File and Directory Discovery (T1083)"
+      scripts: ["collection_dummy_archive.py"]
+      postures: ["03", "05", "09"]
+  Lateral Movement:
+    - technique: "Remote Services: SSH (T1021.004)"
+      scripts: ["ssh_attempt_reserved.py"]
+      postures: ["02", "07"]
+    - technique: "Remote Services (generic T1021)"
+      scripts: ["tcp_connect_attempt.py"]
+      postures: ["08"]
+  Collection:
+    - technique: "Automated Collection (T1119)"
+      scripts: ["collection_dummy_archive.py"]
+      postures: ["03", "05", "09"]
+  Command and Control:
+    - technique: "Application Layer Protocol: Web (T1071.001)"
+      scripts: ["c2_http_localhost.py"]
+      postures: ["01", "03", "07", "08"]
+  Exfiltration:
+    - technique: "Exfiltration Over C2 Channel (T1041)"
+      scripts: ["exfil_localhost_log.py"]
+      postures: ["03", "09"]
+  Impact:
+    - technique: "Inhibit System Recovery (T1490)"
+      scripts: ["backup_disable_log.py"]
+      postures: ["09"]
+    - technique: "Service Disruption Analog"
+      scripts: ["impact_marker.py"]
+      postures: ["12"]
+    - technique: "Alert Suppression / Impact Analog"
+      scripts: ["alert_suppression_marker.py"]
+      postures: ["11"]

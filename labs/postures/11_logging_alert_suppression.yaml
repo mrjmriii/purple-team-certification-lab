@@ -1,0 +1,34 @@
+id: "11"
+name: "Logging/alert suppression"
+category: "Social Engineering Drift"
+pretext: "Too many false positives"
+human_factor: "Fatigue + convenience"
+drift_change:
+  description: "Alerts muted, log level reduced"
+  scope: ["component:wazuh-agent-sim"]
+assumed_access:
+  credentials: "Operator-level"
+  network: "Localhost"
+mapped_kill_chain:
+  - phase: "Defense Evasion"
+    technique: "Impair Defenses (T1562)"
+    scripts: ["loglevel_toggle.py"]
+    telemetry: ["stdout: loglevel lowered marker"]
+  - phase: "Execution"
+    technique: "Command Execution (T1059)"
+    scripts: ["exec_marker.py"]
+    telemetry: ["stdout: exec marker"]
+  - phase: "Impact"
+    technique: "Endpoint Denial / Suppression"
+    scripts: ["alert_suppression_marker.py"]
+    telemetry: ["stdout: alert suppression marker"]
+expected_wazuh_alerts:
+  - { name: "Loglevel change", rule_id: "TODO-LOG-LEVEL", evidence: ["stdout marker"] }
+  - { name: "Suppression marker", rule_id: "TODO-SUPPRESSION", evidence: ["stdout marker"] }
+detection_notes:
+  false_positive_considerations: ["Legit maintenance"]
+  tuning: ["Match marker strings; time-windowed"]
+runner_parameters:
+  timeout_seconds: 150
+  artifacts_path: "/tmp/purple-lab-artifacts"
+  log_level: "info"

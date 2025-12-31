@@ -1,1 +1,40 @@
-# Placeholder: pass/fail criteria per phase.
+# Scoring stub: posture-aware criteria (planning)
+# Pass criteria (future implementation):
+# - Each mapped script executes successfully (exit 0)
+# - Expected artifact/log marker present
+# - Expected Wazuh alert(s) observed within a time window (placeholder rule IDs)
+
+postures:
+  "01":
+    name: "Reduced MFA coverage"
+    phases:
+      - phase: "Initial Access"
+        script: "initial_access_valid_creds.py"
+        expected_artifacts: ["auth.log: login success without MFA field"]
+        expected_rules: ["TODO-MFA-BYPASS"]
+      - phase: "Execution"
+        script: "exec_follow_on.py"
+        expected_artifacts: ["stdout: execution marker"]
+        expected_rules: []
+      - phase: "Persistence"
+        script: "persistence_temp_cron.py"
+        expected_artifacts: ["/tmp/purple-lab-cron"]
+        expected_rules: ["TODO-CRON-TMP"]
+      - phase: "Command and Control"
+        script: "c2_http_localhost.py"
+        expected_artifacts: ["curl http://localhost:8080/beacon"]
+        expected_rules: ["TODO-HTTP-BEACON"]
+  "02":
+    name: "Over-privileged user promotion"
+    phases:
+      - { phase: "Privilege Escalation", script: "priv_escal_group_change_sim.py", expected_artifacts: ["stdout: simulated group change log"], expected_rules: ["TODO-GROUP-CHANGE"] }
+      - { phase: "Discovery", script: "discovery_sudoers_scan.py", expected_artifacts: ["/etc/sudoers read"], expected_rules: ["TODO-SUDOERS-READ"] }
+      - { phase: "Lateral Movement", script: "ssh_attempt_reserved.py", expected_artifacts: ["SSH attempt to 198.51.100.10"], expected_rules: ["TODO-SSH-LATERAL"] }
+  "08":
+    name: "Firewall temporary allow / IDS bypass"
+    phases:
+      - { phase: "Defense Evasion", script: "fw_rule_toggle_log.py", expected_artifacts: ["/tmp/fw_rule_toggle.log"], expected_rules: ["TODO-FW-RULE"] }
+      - { phase: "Lateral Movement", script: "tcp_connect_attempt.py", expected_artifacts: ["connect to 198.51.100.20:8443"], expected_rules: ["TODO-TCP-PROBE"] }
+      - { phase: "Command and Control", script: "c2_http_localhost.py", expected_artifacts: ["curl http://localhost:8080/beacon"], expected_rules: ["TODO-HTTP-BEACON"] }
+
+# Additional postures will be added with scripts as implemented.
