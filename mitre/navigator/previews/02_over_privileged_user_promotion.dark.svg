@@ -1,17 +1,17 @@
 <svg xmlns='http://www.w3.org/2000/svg' width='900' height='330' viewBox='0 0 900 330'>
 <rect width='100%' height='100%' fill='#0b1220' />
 
-<style>text{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#e2e8f0;} .hdr{font-size:18px;font-weight:bold;} .sub{font-size:12px;}</style>
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#f8fafc;} .hdr{font-size:18px;font-weight:bold;} .sub{font-size:12px;fill:#cbd5e1;}</style>
 <text x='20' y='30' class='hdr'>Posture 02 - Over-privileged user promotion</text>
-<rect x='20' y='50' width='860' height='70' rx='10' ry='10' fill='#5b8def' fill-opacity='0.18' stroke='#5b8def' stroke-width='1.5' />
+<rect x='20' y='50' width='860' height='70' rx='10' ry='10' fill='#5b8def' fill-opacity='0.28' stroke='#5b8def' stroke-width='2' />
 <text x='40' y='75' class='hdr'>Step 1: privilege-escalation / T1548</text>
 <text x='40' y='95' class='sub'>Order 1: Group change simulation (priv_escal_group_change_sim.py)</text>
 <text x='40' y='113' class='sub'>Script: priv_escal_group_change_sim.py</text>
-<rect x='20' y='140' width='860' height='70' rx='10' ry='10' fill='#2ca02c' fill-opacity='0.18' stroke='#2ca02c' stroke-width='1.5' />
+<rect x='20' y='140' width='860' height='70' rx='10' ry='10' fill='#2ca02c' fill-opacity='0.28' stroke='#2ca02c' stroke-width='2' />
 <text x='40' y='165' class='hdr'>Step 2: discovery / T1069</text>
 <text x='40' y='185' class='sub'>Order 2: Permission groups discovery (discovery_sudoers_scan.py)</text>
 <text x='40' y='203' class='sub'>Script: discovery_sudoers_scan.py</text>
-<rect x='20' y='230' width='860' height='70' rx='10' ry='10' fill='#ff7f0e' fill-opacity='0.18' stroke='#ff7f0e' stroke-width='1.5' />
+<rect x='20' y='230' width='860' height='70' rx='10' ry='10' fill='#ff7f0e' fill-opacity='0.28' stroke='#ff7f0e' stroke-width='2' />
 <text x='40' y='255' class='hdr'>Step 3: lateral-movement / T1021.004</text>
 <text x='40' y='275' class='sub'>Order 3: SSH lateral attempt to reserved IP (ssh_attempt_reserved.py)</text>
 <text x='40' y='293' class='sub'>Script: ssh_attempt_reserved.py</text>
