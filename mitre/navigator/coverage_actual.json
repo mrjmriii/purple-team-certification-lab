@@ -1,0 +1,22 @@
+{
+  "name": "Actual validation-first coverage",
+  "description": "Validated techniques listed in mitre/coverage/actual.json",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.8.1",
+    "layer": "4.4"
+  },
+  "techniques": [],
+  "gradient": {
+    "colors": [
+      "#e6f7ee",
+      "#16a34a"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

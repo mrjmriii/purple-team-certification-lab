@@ -46,6 +46,29 @@ while honoring the safety and telemetry guardrails in `AGENTS.conf`.
 | ID | Item | Status | Notes |
 | --- | --- | --- | --- |
 | PT-001 | Make `mitre/kill_chain_maps.md` dark-mode friendly | Done | Added dark SVG variants and light/dark image hints. |
+| PT-002 | Automate planned vs actual MITRE coverage maps | Planned | Build Navigator layers + SVG previews using official ATT&CK STIX data and `mitre/coverage/actual.json`. |
+
+## Sprint plan: PT-002 Planned vs actual coverage automation
+Goal: generate planned vs actual MITRE coverage layers and SVG previews for GitHub, using the
+official ATT&CK STIX dataset as the source of truth for tactic mapping.
+
+File-level plan:
+- `.gitignore`: ignore the local ATT&CK STIX clone under `third_party/` to keep the repo clean.
+- `mitre/coverage/actual.json`: store validated technique IDs (manual updates as plays certify).
+- `mitre/coverage/README.md`: document the workflow, format, and validation steps.
+- `mitre/tools/fetch_attack_stix.sh`: fetch/update the official MITRE ATT&CK STIX repo on demand.
+- `mitre/tools/build_coverage_assets.py`: parse planned vs actual techniques and build layers + SVGs.
+- `mitre/navigator/coverage_planned.json`: Navigator layer for planned validation-first coverage.
+- `mitre/navigator/coverage_actual.json`: Navigator layer for actual validation-first coverage.
+- `mitre/navigator/previews/coverage_*.svg`: GitHub preview SVGs with light/dark variants.
+- `mitre/kill_chain_maps.md`: surface the new coverage previews and layer links.
+
+Validation:
+- Run `python3 mitre/tools/build_coverage_assets.py` after updating planned or actual sources.
+- Import the generated layers in MITRE Navigator to confirm tactic alignment.
+
+Inter-repo considerations:
+- When the workflow stabilizes, add a pointer from `iac-homelab` docs/Dashy to these coverage maps.
 
 ## References
 - Guardrails and operating model: `AGENTS.conf`

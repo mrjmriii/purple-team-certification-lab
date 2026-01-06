@@ -21,6 +21,19 @@ script). Scripts are safe simulations and not yet implemented.
 - Scripts are planned names matching `labs/postures/*.yaml` manifests.
 - Order is the execution sequence within each posture.
 
+## Validation-first coverage (planned vs actual)
+Planned coverage is derived from technique IDs in this document. Actual coverage is sourced from
+`mitre/coverage/actual.json` entries marked `status: validated`.
+
+![Planned coverage preview](navigator/previews/coverage_planned.svg#gh-light-mode-only)
+![Planned coverage preview](navigator/previews/coverage_planned.dark.svg#gh-dark-mode-only)
+
+![Actual coverage preview](navigator/previews/coverage_actual.svg#gh-light-mode-only)
+![Actual coverage preview](navigator/previews/coverage_actual.dark.svg#gh-dark-mode-only)
+
+Navigator layers live at `mitre/navigator/coverage_planned.json` and
+`mitre/navigator/coverage_actual.json`.
+
 ---
 
 ## 01 Reduced MFA coverage

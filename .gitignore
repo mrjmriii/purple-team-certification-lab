@@ -16,6 +16,8 @@ venv/
 .ruff_cache/
 .coverage
 coverage/
+!mitre/coverage/
+!mitre/coverage/**
 
 # Editor/OS
 .DS_Store
@@ -30,6 +32,9 @@ coverage/
 artifacts/
 telemetry/output/
 telemetry/run-artifacts/
+
+# Third-party data
+third_party/attack-stix-data/
 
 # Secrets
 .env

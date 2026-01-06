@@ -1,0 +1,197 @@
+{
+  "name": "Planned validation-first coverage",
+  "description": "Planned validation-first coverage derived from mitre/kill_chain_maps.md",
+  "domain": "enterprise-attack",
+  "versions": {
+    "attack": "14",
+    "navigator": "4.8.1",
+    "layer": "4.4"
+  },
+  "techniques": [
+    {
+      "techniqueID": "T1018",
+      "tactic": "discovery",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1021.004",
+      "tactic": "lateral-movement",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1041",
+      "tactic": "exfiltration",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "execution",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "persistence",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1053",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1059",
+      "tactic": "execution",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1069",
+      "tactic": "discovery",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1071.001",
+      "tactic": "command-and-control",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "initial-access",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "persistence",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1078",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1083",
+      "tactic": "discovery",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1110",
+      "tactic": "credential-access",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1119",
+      "tactic": "collection",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "initial-access",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1133",
+      "tactic": "persistence",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1136.001",
+      "tactic": "persistence",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1490",
+      "tactic": "impact",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1499",
+      "tactic": "impact",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "privilege-escalation",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1548",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1552",
+      "tactic": "credential-access",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1562",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1562.001",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1562.004",
+      "tactic": "defense-evasion",
+      "score": 1,
+      "enabled": true
+    },
+    {
+      "techniqueID": "T1566",
+      "tactic": "initial-access",
+      "score": 1,
+      "enabled": true
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#e8f1ff",
+      "#2563eb"
+    ],
+    "minValue": 0,
+    "maxValue": 1
+  },
+  "selectTechniquesAcrossTactics": true,
+  "showTacticRowBackground": false,
+  "hideDisabled": true
+}

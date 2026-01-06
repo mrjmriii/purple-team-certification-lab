@@ -1,0 +1,59 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='1422' viewBox='0 0 900 1422'>
+<rect width='100%' height='100%' fill='#111827' />
+
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#f8fafc;} .hdr{font-size:18px;font-weight:bold;} .sub{font-size:12px;fill:#cbd5e1;}</style>
+<text x='20' y='30' class='hdr'>Planned validation-first coverage</text>
+<rect x='20' y='50' width='860' height='102' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='72' class='hdr'>Initial Access (3)</text>
+<text x='40' y='90' class='sub'>T1078 Valid Accounts</text>
+<text x='40' y='106' class='sub'>T1133 External Remote Services</text>
+<text x='40' y='122' class='sub'>T1566 Phishing</text>
+<rect x='20' y='172' width='860' height='86' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='194' class='hdr'>Execution (2)</text>
+<text x='40' y='212' class='sub'>T1053 Scheduled Task/Job</text>
+<text x='40' y='228' class='sub'>T1059 Command and Scripting Interpreter</text>
+<rect x='20' y='278' width='860' height='118' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='300' class='hdr'>Persistence (4)</text>
+<text x='40' y='318' class='sub'>T1053 Scheduled Task/Job</text>
+<text x='40' y='334' class='sub'>T1078 Valid Accounts</text>
+<text x='40' y='350' class='sub'>T1133 External Remote Services</text>
+<text x='40' y='366' class='sub'>T1136.001 Local Account</text>
+<rect x='20' y='416' width='860' height='102' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='438' class='hdr'>Privilege Escalation (3)</text>
+<text x='40' y='456' class='sub'>T1053 Scheduled Task/Job</text>
+<text x='40' y='472' class='sub'>T1078 Valid Accounts</text>
+<text x='40' y='488' class='sub'>T1548 Abuse Elevation Control Mechanism</text>
+<rect x='20' y='538' width='860' height='134' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='560' class='hdr'>Defense Evasion (5)</text>
+<text x='40' y='578' class='sub'>T1078 Valid Accounts</text>
+<text x='40' y='594' class='sub'>T1548 Abuse Elevation Control Mechanism</text>
+<text x='40' y='610' class='sub'>T1562 Impair Defenses</text>
+<text x='40' y='626' class='sub'>T1562.001 Disable or Modify Tools</text>
+<text x='40' y='642' class='sub'>T1562.004 Disable or Modify System Firewall</text>
+<rect x='20' y='692' width='860' height='86' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='714' class='hdr'>Credential Access (2)</text>
+<text x='40' y='732' class='sub'>T1110 Brute Force</text>
+<text x='40' y='748' class='sub'>T1552 Unsecured Credentials</text>
+<rect x='20' y='798' width='860' height='102' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='820' class='hdr'>Discovery (3)</text>
+<text x='40' y='838' class='sub'>T1018 Remote System Discovery</text>
+<text x='40' y='854' class='sub'>T1069 Permission Groups Discovery</text>
+<text x='40' y='870' class='sub'>T1083 File and Directory Discovery</text>
+<rect x='20' y='920' width='860' height='86' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='942' class='hdr'>Lateral Movement (2)</text>
+<text x='40' y='960' class='sub'>T1021 Remote Services</text>
+<text x='40' y='976' class='sub'>T1021.004 SSH</text>
+<rect x='20' y='1026' width='860' height='70' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='1048' class='hdr'>Collection (1)</text>
+<text x='40' y='1066' class='sub'>T1119 Automated Collection</text>
+<rect x='20' y='1116' width='860' height='70' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='1138' class='hdr'>Command and Control (1)</text>
+<text x='40' y='1156' class='sub'>T1071.001 Web Protocols</text>
+<rect x='20' y='1206' width='860' height='70' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='1228' class='hdr'>Exfiltration (1)</text>
+<text x='40' y='1246' class='sub'>T1041 Exfiltration Over C2 Channel</text>
+<rect x='20' y='1296' width='860' height='86' rx='10' ry='10' fill='#2563eb' fill-opacity='0.28' stroke='#2563eb' stroke-width='2' />
+<text x='40' y='1318' class='hdr'>Impact (2)</text>
+<text x='40' y='1336' class='sub'>T1490 Inhibit System Recovery</text>
+<text x='40' y='1352' class='sub'>T1499 Endpoint Denial of Service</text>
+</svg>
