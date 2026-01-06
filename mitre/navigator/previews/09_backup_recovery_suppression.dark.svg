@@ -1,0 +1,18 @@
+<svg xmlns='http://www.w3.org/2000/svg' width='900' height='330' viewBox='0 0 900 330'>
+<rect width='100%' height='100%' fill='#0b1220' />
+
+<style>text{font-family:Arial,Helvetica,sans-serif;font-size:14px;fill:#e2e8f0;} .hdr{font-size:18px;font-weight:bold;} .sub{font-size:12px;}</style>
+<text x='20' y='30' class='hdr'>Posture 09 - Backup & recovery suppression</text>
+<rect x='20' y='50' width='860' height='70' rx='10' ry='10' fill='#5b8def' fill-opacity='0.18' stroke='#5b8def' stroke-width='1.5' />
+<text x='40' y='75' class='hdr'>Step 1: impact / T1490</text>
+<text x='40' y='95' class='sub'>Order 1: Inhibit system recovery (backup_disable_log.py)</text>
+<text x='40' y='113' class='sub'>Script: backup_disable_log.py</text>
+<rect x='20' y='140' width='860' height='70' rx='10' ry='10' fill='#2ca02c' fill-opacity='0.18' stroke='#2ca02c' stroke-width='1.5' />
+<text x='40' y='165' class='hdr'>Step 2: discovery / T1083</text>
+<text x='40' y='185' class='sub'>Order 2: File discovery/archive (collection_dummy_archive.py)</text>
+<text x='40' y='203' class='sub'>Script: collection_dummy_archive.py</text>
+<rect x='20' y='230' width='860' height='70' rx='10' ry='10' fill='#ff7f0e' fill-opacity='0.18' stroke='#ff7f0e' stroke-width='1.5' />
+<text x='40' y='255' class='hdr'>Step 3: exfiltration / T1041</text>
+<text x='40' y='275' class='sub'>Order 3: Exfil over HTTP localhost (exfil_localhost_log.py)</text>
+<text x='40' y='293' class='sub'>Script: exfil_localhost_log.py</text>
+</svg>

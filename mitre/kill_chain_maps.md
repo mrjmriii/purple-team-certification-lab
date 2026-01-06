@@ -8,6 +8,8 @@ script). Scripts are safe simulations and not yet implemented.
 - **Inline previews (GitHub-friendly):** SVG previews generated from the Navigator layers live under
   `mitre/navigator/previews/` and render directly in GitHub. Each shows the ordered steps, tactic,
   ATT&CK ID, and planned script.
+- **Dark mode support:** GitHub light/dark previews use paired SVGs (`*.svg` and `*.dark.svg`) with
+  `#gh-light-mode-only` / `#gh-dark-mode-only` image hints.
 - **ATT&CK Navigator layers:** Import the posture-specific JSON layers from `mitre/navigator/*.json`
   into https://mitre-attack.github.io/attack-navigator/ to see tactic-aligned tiles with ordering
   metadata.
@@ -29,7 +31,8 @@ flowchart LR
     C --> D[C2\nT1071.001\nc2_http_localhost.py]
 ```
 
-![Navigator preview](navigator/previews/01_reduced_mfa_coverage.svg)
+![Navigator preview](navigator/previews/01_reduced_mfa_coverage.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/01_reduced_mfa_coverage.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                  | Planned Script                |
 |-------|--------------------|-------------------------------------|-------------------------------|
@@ -53,7 +56,8 @@ flowchart LR
     B --> C[Lateral Movement\nT1021.004\nssh_attempt_reserved.py]
 ```
 
-![Navigator preview](navigator/previews/02_over_privileged_user_promotion.svg)
+![Navigator preview](navigator/previews/02_over_privileged_user_promotion.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/02_over_privileged_user_promotion.dark.svg#gh-dark-mode-only)
 
 | Order | Phase                 | Technique (ATT&CK)                     | Planned Script                    |
 |-------|-----------------------|----------------------------------------|-----------------------------------|
@@ -69,7 +73,8 @@ flowchart LR
     C --> D[Exfiltration\nT1041\nexfil_localhost_log.py]
 ```
 
-![Navigator preview](navigator/previews/03_email_security_relaxation.svg)
+![Navigator preview](navigator/previews/03_email_security_relaxation.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/03_email_security_relaxation.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                     | Planned Script                   |
 |-------|--------------------|----------------------------------------|----------------------------------|
@@ -85,7 +90,8 @@ flowchart LR
     B --> C[Defense Evasion\nT1562.001\nexec_policy_toggle_sim.py]
 ```
 
-![Navigator preview](navigator/previews/04_execution_policy_weakening.svg)
+![Navigator preview](navigator/previews/04_execution_policy_weakening.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/04_execution_policy_weakening.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                    | Planned Script                    |
 |-------|--------------------|---------------------------------------|-----------------------------------|
@@ -100,7 +106,8 @@ flowchart LR
     B --> C[Collection\nT1119\ncollection_dummy_archive.py]
 ```
 
-![Navigator preview](navigator/previews/05_endpoint_protection_exclusions.svg)
+![Navigator preview](navigator/previews/05_endpoint_protection_exclusions.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/05_endpoint_protection_exclusions.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                    | Planned Script                    |
 |-------|--------------------|---------------------------------------|-----------------------------------|
@@ -115,7 +122,8 @@ flowchart LR
     B --> C[Defense Evasion\nT1562\nloglevel_toggle.py]
 ```
 
-![Navigator preview](navigator/previews/06_password_policy_relaxation.svg)
+![Navigator preview](navigator/previews/06_password_policy_relaxation.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/06_password_policy_relaxation.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                    | Planned Script                    |
 |-------|--------------------|---------------------------------------|-----------------------------------|
@@ -131,7 +139,8 @@ flowchart LR
     C --> D[C2\nT1071.001\nc2_http_localhost.py]
 ```
 
-![Navigator preview](navigator/previews/07_vpn_trust_expansion.svg)
+![Navigator preview](navigator/previews/07_vpn_trust_expansion.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/07_vpn_trust_expansion.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                      | Planned Script                    |
 |-------|--------------------|-----------------------------------------|-----------------------------------|
@@ -147,7 +156,8 @@ flowchart LR
     B --> C[C2\nT1071.001\nc2_http_localhost.py]
 ```
 
-![Navigator preview](navigator/previews/08_firewall_allow_ids_bypass.svg)
+![Navigator preview](navigator/previews/08_firewall_allow_ids_bypass.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/08_firewall_allow_ids_bypass.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                       | Planned Script                    |
 |-------|--------------------|------------------------------------------|-----------------------------------|
@@ -162,7 +172,8 @@ flowchart LR
     B --> C[Exfiltration\nT1041\nexfil_localhost_log.py]
 ```
 
-![Navigator preview](navigator/previews/09_backup_recovery_suppression.svg)
+![Navigator preview](navigator/previews/09_backup_recovery_suppression.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/09_backup_recovery_suppression.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                     | Planned Script                    |
 |-------|--------------------|----------------------------------------|-----------------------------------|
@@ -177,7 +188,8 @@ flowchart LR
     B --> C[Execution\nT1059\ntoken_use_log.py]
 ```
 
-![Navigator preview](navigator/previews/10_service_account_credential_exposure.svg)
+![Navigator preview](navigator/previews/10_service_account_credential_exposure.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/10_service_account_credential_exposure.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                    | Planned Script                    |
 |-------|--------------------|---------------------------------------|-----------------------------------|
@@ -192,7 +204,8 @@ flowchart LR
     B --> C[Impact\nT1499 analog\nalert_suppression_marker.py]
 ```
 
-![Navigator preview](navigator/previews/11_logging_alert_suppression.svg)
+![Navigator preview](navigator/previews/11_logging_alert_suppression.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/11_logging_alert_suppression.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                         | Planned Script                    |
 |-------|--------------------|--------------------------------------------|-----------------------------------|
@@ -207,7 +220,8 @@ flowchart LR
     B --> C[Impact\nT1499 analog\nimpact_marker.py]
 ```
 
-![Navigator preview](navigator/previews/12_change_control_bypass.svg)
+![Navigator preview](navigator/previews/12_change_control_bypass.svg#gh-light-mode-only)
+![Navigator preview](navigator/previews/12_change_control_bypass.dark.svg#gh-dark-mode-only)
 
 | Order | Phase              | Technique (ATT&CK)                         | Planned Script                    |
 |-------|--------------------|--------------------------------------------|-----------------------------------|

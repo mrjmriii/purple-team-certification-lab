@@ -42,6 +42,11 @@ while honoring the safety and telemetry guardrails in `AGENTS.conf`.
 4. Expand the scorecard to assert pass/fail per posture: script exit 0 + artifact present +
    (future) Wazuh alert observed within window.
 
+## Backlog
+| ID | Item | Status | Notes |
+| --- | --- | --- | --- |
+| PT-001 | Make `mitre/kill_chain_maps.md` dark-mode friendly | Done | Added dark SVG variants and light/dark image hints. |
+
 ## References
 - Guardrails and operating model: `AGENTS.conf`
 - Public hygiene and AI transparency: `README.md`
